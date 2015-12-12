@@ -9,6 +9,6 @@ function matchesEnd(line) {
 }
 
 module.exports = function (original, update) {
-  update = '<!-- start blog index -->\n' + update + '\n<!-- end blog index -->' 
+  update = '<!-- start blog index -->\n' + update + '\n\n<!-- end blog index -->' 
   return updateSection(original, update, matchesStart, matchesEnd)
 }

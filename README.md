@@ -2,9 +2,12 @@
 
 基于 GitHub 的博客系统 ( ゜- ゜)つロ 
 
+## 文章列表
+
 <!-- start blog index -->
 - [Get Started](/blogs/get-started.md)
 - [二〇一五年十月新番推荐](/blogs/anime-recommendations.md)
+
 <!-- end blog index -->
 
 ## License
