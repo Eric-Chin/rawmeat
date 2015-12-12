@@ -1,6 +1,6 @@
 ---
-title: Get Started
-date: 2015-10-15 11:29:50
+title: 使用教程
+date: 2015-12-12
 categories:
 - help
 ---
@@ -16,3 +16,5 @@ npm install
 ```bash
 npm run build
 ```
+
+你可以在根目录的 `rawmeat.json` 填写你的博客信息。
