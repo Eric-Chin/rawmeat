@@ -29,7 +29,7 @@ co(function* () {
   for (var i = 0; i < blogs.length; i++) {
     var post = blogs[i]
     indexTable.push([
-      post.title,
+      `[${post.title}](/blogs/${post.filename})`,
       Array.isArray(post.categories) ? post.categories.join(',') : post.categories,
       formatDate(post.date)
     ])
