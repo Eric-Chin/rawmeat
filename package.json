@@ -1,0 +1,23 @@
+{
+  "name": "rawmeat",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node scripts/buildIndex"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "co": "^4.6.0",
+    "glob": "^6.0.1",
+    "minimist": "^1.2.0",
+    "pify": "^2.3.0",
+    "readpost": "^0.1.2",
+    "update-section": "^0.3.3"
+  },
+  "engines": {
+    "node": ">= 4.0.0"
+  }
+}
