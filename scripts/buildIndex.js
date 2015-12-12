@@ -8,6 +8,7 @@ const updateSection = require('./utils/updateSection')
 const formatDate = require('./utils/formatDate')
 const fs = pify(require('fs'))
 const glob = pify(require("glob"))
+const config = require('../rawmeat.json')
 require('shelljs/global')
 
 const blogsLocation = path.join(process.cwd(), 'blogs/!(README).md');
@@ -35,9 +36,12 @@ co(function* () {
       formatDate(post.date)
     ])
   }
-  var readmeLocation = path.join(process.cwd(), 'README.md')
+  var readmeLocation = path.join(process.cwd(), 'scripts/templates/README.md')
   var readme = yield fs.readFile(readmeLocation, 'utf8')
-  readme = updateSection(readme, table(indexTable))
-  yield fs.writeFile(readmeLocation, readme, 'utf8')
-  cp('-f', readmeLocation, path.join(process.cwd(), 'blogs/README.md'))
+  readme = readme
+    .replace(/__SITE_NAME__/, config.sitename)
+    .replace(/__DESCRIPTION__/, config.description)
+    .replace(/__POST_LIST__/, table(indexTable))
+  yield fs.writeFile(process.cwd() + '/README.md', readme, 'utf8')
+  cp('-f', process.cwd() + '/README.md', process.cwd() + '/blogs/README.md')
 }).catch(err => console.log(err))
