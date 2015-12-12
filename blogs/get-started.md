@@ -5,7 +5,9 @@ categories:
 - help
 ---
 
-请 fork 一份然后安装执行:
+首先确保你安装了 `node >= 4.0.0` 的版本。
+
+在 fork 了一份之后本地执行:
 
 ```bash
 npm install
