@@ -3,7 +3,9 @@ const path = require('path')
 const co = require('co')
 const pify = require('pify')
 const readPost = require('readpost')
+const table = require('markdown-table')
 const updateSection = require('./utils/updateSection')
+const formatDate = require('./utils/formatDate')
 const fs = pify(require('fs'))
 const glob = pify(require("glob"))
 
@@ -21,13 +23,19 @@ co(function* () {
   blogs = blogs.sort((a, b) => {
     return new Date(b.date) - new Date(a.date)
   })
-  const index = []
+  const indexTable = [
+    ['标题', '分类', '日期']
+  ]
   for (var i = 0; i < blogs.length; i++) {
     var post = blogs[i]
-    index.push(`- [${post.title}](/blogs/${post.filename})`)
+    indexTable.push([
+      post.title,
+      Array.isArray(post.categories) ? post.categories.join(',') : post.categories,
+      formatDate(post.date)
+    ])
   }
   var readmeLocation = path.join(process.cwd(), 'README.md')
   var readme = yield fs.readFile(readmeLocation, 'utf8')
-  readme = updateSection(readme, index.join('\n'))
+  readme = updateSection(readme, table(indexTable))
   yield fs.writeFile(readmeLocation, readme, 'utf8')
 }).catch(err => console.log(err))

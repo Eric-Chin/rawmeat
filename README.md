@@ -5,8 +5,10 @@
 ## 文章列表
 
 <!-- start blog index -->
-- [Get Started](/blogs/get-started.md)
-- [二〇一五年十月新番推荐](/blogs/anime-recommendations.md)
+| 标题          | 分类    | 日期         |
+| ----------- | ----- | ---------- |
+| Get Started | help  | 2015-10-15 |
+| 二〇一五年十月新番推荐 | anime | 2015-10-13 |
 
 <!-- end blog index -->
 
