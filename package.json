@@ -16,6 +16,7 @@
     "minimist": "^1.2.0",
     "pify": "^2.3.0",
     "readpost": "^0.1.2",
+    "shelljs": "^0.5.3",
     "update-section": "^0.3.3"
   },
   "engines": {

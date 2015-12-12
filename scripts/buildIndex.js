@@ -8,8 +8,9 @@ const updateSection = require('./utils/updateSection')
 const formatDate = require('./utils/formatDate')
 const fs = pify(require('fs'))
 const glob = pify(require("glob"))
+require('shelljs/global')
 
-const blogsLocation = path.join(process.cwd(), 'blogs/*.md');
+const blogsLocation = path.join(process.cwd(), 'blogs/!(README).md');
 co(function* () {
   const files = yield glob(blogsLocation)
   var blogs = []
@@ -38,4 +39,5 @@ co(function* () {
   var readme = yield fs.readFile(readmeLocation, 'utf8')
   readme = updateSection(readme, table(indexTable))
   yield fs.writeFile(readmeLocation, readme, 'utf8')
+  cp('-f', readmeLocation, path.join(process.cwd(), 'blogs/README.md'))
 }).catch(err => console.log(err))
