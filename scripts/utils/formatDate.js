@@ -1,5 +1,5 @@
 module.exports = function formatDate(date) {
-    var d = new Date(date),
+    var d = date ? new Date(date) : new Date(),
         month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
         year = d.getFullYear()

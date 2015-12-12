@@ -1,4 +1,5 @@
-/* global process */
+/* global process, cp */
+require('colorful').toxic()
 const path = require('path')
 const co = require('co')
 const pify = require('pify')
@@ -43,4 +44,5 @@ co(function* () {
     .replace(/__POST_LIST__/, table(indexTable))
   yield fs.writeFile(process.cwd() + '/README.md', readme, 'utf8')
   cp('-f', process.cwd() + '/README.md', process.cwd() + '/blogs/README.md')
+  console.log('成功了 ( ゜- ゜)つロ'.green)
 }).catch(err => console.log(err))

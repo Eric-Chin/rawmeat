@@ -13,6 +13,12 @@ categories:
 npm install
 ```
 
+新建文章:
+
+```bash
+npm run post hello-world
+```
+
 添加文章后重新生成首页的文章列表:
 
 ```bash
