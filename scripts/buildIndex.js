@@ -23,6 +23,12 @@ co(function* () {
     blogs.push(meta)
   }
   blogs = blogs.sort((a, b) => {
+    if (a.top && !b.top) {
+      return -1
+    }
+    if (b.top && !a.top) {
+      return 1
+    }
     return new Date(b.date) - new Date(a.date)
   })
   const indexTable = [
@@ -31,7 +37,7 @@ co(function* () {
   for (var i = 0; i < blogs.length; i++) {
     var post = blogs[i]
     indexTable.push([
-      `[${post.title}](/blogs/${post.filename})`,
+      `[${post.top ? '[置顶] ' : ''}${post.title}](/blogs/${post.filename})`,
       Array.isArray(post.categories) ? post.categories.join(',') : post.categories,
       formatDate(post.date)
     ])
