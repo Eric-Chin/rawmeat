@@ -1,8 +1,8 @@
 ---
-title: 使用教程
+title: 生肉使用教程
 date: 2015-12-12
 categories:
-- help
+- 帮助
 ---
 
 首先确保你安装了 `node >= 4.0.0` 的版本。
