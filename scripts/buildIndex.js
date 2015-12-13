@@ -39,9 +39,10 @@ co(function* () {
   var readmeLocation = path.join(process.cwd(), 'scripts/templates/README.md')
   var readme = yield fs.readFile(readmeLocation, 'utf8')
   readme = readme
-    .replace(/__SITE_NAME__/, config.sitename)
-    .replace(/__DESCRIPTION__/, config.description)
-    .replace(/__POST_LIST__/, table(indexTable))
+    .replace(/__SITE_NAME__/g, config.sitename)
+    .replace(/__DESCRIPTION__/g, config.description)
+    .replace(/__POST_LIST__/g, table(indexTable))
+    .replace(/__LICENSE__/g, config.license)
   yield fs.writeFile(process.cwd() + '/README.md', readme, 'utf8')
   cp('-f', process.cwd() + '/README.md', process.cwd() + '/blogs/README.md')
   console.log('成功了 ( ゜- ゜)つロ'.green)
